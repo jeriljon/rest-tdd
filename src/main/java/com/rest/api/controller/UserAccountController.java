@@ -23,17 +23,13 @@ public class UserAccountController {
 
     @GetMapping(value = "/userAccounts")
     public ResponseEntity<List<UserAccount>> getAllUserAccounts() {
-        System.out.println("In UserAccountController.getUserAccount()");
         List<UserAccount> userAccounts = userAccountService.getAllUserAccounts();
-        System.out.println("In UserAccountController, userAccount: " + userAccounts);
         return ResponseEntity.status(HttpStatus.OK).body(userAccounts);
     }
 
     @GetMapping(value = "/userAccount/{id}")
     public ResponseEntity<UserAccount> getUserAccount(@PathVariable("id") String id) {
-        System.out.println("In UserAccountController.getUserAccount()");
         UserAccount userAccount = userAccountService.getUserAccount(id);
-        System.out.println("In UserAccountController, userAccount: " + userAccount);
         return ResponseEntity.status(HttpStatus.OK).body(userAccount);
     }
 }

@@ -10,17 +10,14 @@ import java.util.List;
 public class UserAccountService {
 
     public UserAccount getUserAccount(String id) {
-        System.out.println("In UserAccountService, getUserAccount for id: " + id);
         return getUserAccountById(id);
     }
 
     public List<UserAccount> getAllUserAccounts() {
-        System.out.println("In UserAccountService, getAllUserAccounts");
         return generateSampleUserAccounts();
     }
 
     private List<UserAccount> generateSampleUserAccounts() {
-        System.out.println("In UserAccountService, generateSampleUserAccounts: ");
         List<UserAccount> userAccountList = new ArrayList<>();
         userAccountList.add(new UserAccount(1, "Jake", "Admin"));
         userAccountList.add(new UserAccount(2, "Bob", "User"));
@@ -29,7 +26,6 @@ public class UserAccountService {
     }
 
     private UserAccount getUserAccountById(String id) {
-        System.out.println("In UserAccountService, getUserAccountById for id: " + id);
         Integer idInt = Integer.parseInt(id);
         return generateSampleUserAccounts().stream().filter(userAccount -> userAccount.getId().equals(idInt)).findFirst().orElse(null);
     }
