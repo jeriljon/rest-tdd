@@ -1,5 +1,7 @@
 package com.rest.api.model;
 
+import java.util.Objects;
+
 public class UserAccount {
     private Integer id;
     private String name;
@@ -33,5 +35,20 @@ public class UserAccount {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserAccount that = (UserAccount) o;
+        return id.equals(that.id) &&
+                name.equals(that.name) &&
+                role.equals(that.role);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, role);
     }
 }
